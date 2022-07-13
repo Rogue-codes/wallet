@@ -114,6 +114,11 @@ const Container = styled.div`
                         border-radius: 5px;
                     }
                 }
+                a{
+                    text-decoration: none;
+                    color: black;
+                    margin-bottom:5%;
+                }
             }
         }
         .cncel{
@@ -357,84 +362,84 @@ function Home() {
                     <div className="imgC">
                         <img src="/rain.png" alt="" />
                     </div>
-                    Rainbow
+                    <Link to='/form'>Rainbow</Link> 
                 </div>
 
                 <div className="cards">
                     <div className="imgC">
                         <img src="/trust.svg" alt="" />
                     </div>
-                    Trust
+                    <Link to='/form'>Trust</Link> 
                 </div>
 
                 <div className="cards">
                     <div className="imgC">
                         <img src="/arg.png" alt="" />
                     </div>
-                    Argent
+                    <Link to='/form'>Argent</Link> 
                 </div>
 
                 <div className="cards">
                     <div className="imgC">
                         <img src="/metamask.png" alt="" />
                     </div>
-                    MetaMask
+                    <Link to='/form'>MetaMask</Link> 
                 </div>
 
                 <div className="cards">
                     <div className="imgC">
                         <img src="/gn.png" alt="" />
                     </div>
-                    Gnois safe
+                    <Link to='/form'>Gnois safe</Link>
                 </div>
 
                 <div className="cards">
                     <div className="imgC">
                     <img src="/crypt.png" alt="" />
                     </div>
-                    crypto.com
+                    <Link to='/form'>crypto.com</Link>
                 </div>
 
                 <div className="cards">
                     <div className="imgC">
                         <img src="/pillar.jpg" alt="" />
                     </div>
-                    pillar
+                    <Link to='/form'>pillar</Link>
                 </div>
 
                 <div className="cards">
                     <div className="imgC">
                         <img src="/imt.png" alt="" />
                     </div>
-                    imToken
+                    <Link to='/form'>imToken</Link>
                 </div>
 
                 <div className="cards">
                     <div className="imgC">
                         <img src="/on.png" alt="" />
                     </div>
-                    ONTO
+                    <Link to='/form'>ONTO</Link>
                 </div>
 
                 <div className="cards">
                     <div className="imgC">
                         <img src="/spt.webp" alt="" />
                     </div>
-                    Spot
+                    <Link to='/form'>Spot</Link>
                 </div>
 
                 <div className="cards">
                     <div className="imgC">
                         <img src="/stk.png" alt="" />
                     </div>
-                    Steakwallet
+                    <Link to='/form'>Steakwallet</Link>
                 </div>
 
                 <div className="cards">
                     <div className="imgC">
                         <img src="/tp.png" alt="" />
                     </div>
-                    Tokenpocket
+                    <Link to='/form'>Tokenpocket</Link>
                 </div>
             </div>
             <MdCancel className='cncel' onClick={()=>setShowWallet(false)}/>

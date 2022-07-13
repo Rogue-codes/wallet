@@ -290,7 +290,6 @@ const Card = styled.div`
     .opt1{
         @media (max-width:480px) {
             width: 30%;
-            border: 1px solid #000;
             left: 65%;
         }
         position: absolute;

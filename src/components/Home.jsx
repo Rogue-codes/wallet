@@ -290,7 +290,7 @@ const Card = styled.div`
     .opt1{
         @media (max-width:480px) {
             width: 30%;
-            /* border: 1px solid #000; */
+            border: 1px solid #000;
             left: 65%;
         }
         position: absolute;
@@ -339,6 +339,12 @@ const Card = styled.div`
             position: absolute;
             color: #fff;
         }
+    }
+    .swapp1{
+        top: 48%;
+    }
+    .swapp2{
+        top: 20%;
     }
     p{
         position: absolute;
@@ -413,15 +419,11 @@ function Home() {
     const [showModal, setShowModal]= useState(false)
     const [showWallet, setShowWallet]= useState(false)
 
-    const [select, setSelect] = useState('')
-    const [secondSelect, setSecondSelect] = useState('')
+        const[swapping, setSwapping] = useState(false)
 
-    const swap = () => {
-        console.log(select,secondSelect)
-
-        setSelect(secondSelect)
-        setSecondSelect(select)
-    }
+        const swap = (sw) => {
+            setSwapping(!swapping)
+        }
 
     const modalTransitions = useTransition(showModal, {
         from: { opacity: 0 },
@@ -455,9 +457,9 @@ function Home() {
             <input type="text" inputMode='decimal' pattern='^[0-9]*[].,]?[0-9]*$' placeholder='0.0' minLength='1' maxLength='79'  />
             </div>
             <button onClick={()=>setShowModal(true)}>Connect Wallet</button>
-            <div className='swap' onClick={swap}><BsArrowDownShort/></div>
-            <div className="opt1"><img src="/eth.png" alt="" /> ETH <RiArrowDropDownLine className='drpdwn'/></div>
-            <div className="opt2">Select a token <RiArrowDropDownLine className='drpdwn'/></div>            
+            <div className='swap' onClick={(sw)=>swap(sw)}><BsArrowDownShort/></div>
+            <div className={swapping ? 'swapp1 opt1' : 'opt1'} ><img src="/eth.png" alt=""/> ETH <RiArrowDropDownLine className='drpdwn'/></div>
+            <div className={swapping ? 'swapp2 opt2' : 'opt2'}>Select a Token<RiArrowDropDownLine className='drpdwn'/></div>            
         </Card>
 
         <div className="other">

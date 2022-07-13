@@ -5,6 +5,7 @@ import {FiSettings} from 'react-icons/fi'
 import {MdCancel} from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import { useTransition, animated } from 'react-spring'
+import {BsArrowUpRight} from 'react-icons/bs'
 import {FaTimes} from 'react-icons/fa'
 
 const Container = styled.div`
@@ -211,6 +212,42 @@ const Container = styled.div`
             cursor: pointer;
         }
     }
+    .others{
+        @media (max-width:480px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: auto;
+            height: 6vh;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 2%;
+            position: relative;
+            margin-top: 35%;
+            font-size: 1rem;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        display: none;
+        a{
+            text-decoration: none;
+            color: grey;
+            &:hover{
+                color: black;
+            }
+            span{
+                background: #ebedf2;
+                padding: 15% 20%;
+                height: 100%;
+                border-radius: 12px;
+                color: black;
+                font-weight: 700;
+            }
+        }
+        .arrow{
+            position: absolute;
+        }
+    }
 `
 const Card = styled.div`
     @media (max-width:480px) {
@@ -219,7 +256,7 @@ const Card = styled.div`
     }
     width: 40%;
     left: 30%;
-    top: 15vh;
+    top: 10vh;
     height: 50vh;
     background: #fff;
     position: absolute;
@@ -330,6 +367,13 @@ function Home() {
             </div>
             <button onClick={()=>setShowModal(true)}>Connect Wallet</button>
         </Card>
+
+        <div className="others">
+            <Link to='/'><span>Swap</span></Link>
+            <Link to='/'>Pool</Link>
+            <Link to='/'>Vote</Link>
+            <Link to='/'>Charts <BsArrowUpRight className='arrow' size='.5rem'/></Link>
+        </div>
 
         {
         modalTransitions(

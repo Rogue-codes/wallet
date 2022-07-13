@@ -212,7 +212,7 @@ const Container = styled.div`
             cursor: pointer;
         }
     }
-    .others{
+    .other{
         @media (max-width:480px) {
             display: flex;
             justify-content: space-between;
@@ -224,7 +224,7 @@ const Container = styled.div`
             border-radius: 12px;
             padding: 2%;
             position: relative;
-            margin-top: 35%;
+            margin-top: 25%;
             font-size: 1rem;
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         }
@@ -256,7 +256,7 @@ const Card = styled.div`
     }
     width: 40%;
     left: 30%;
-    top: 10vh;
+    top: 2vh;
     height: 50vh;
     background: #fff;
     position: absolute;
@@ -368,7 +368,7 @@ function Home() {
             <button onClick={()=>setShowModal(true)}>Connect Wallet</button>
         </Card>
 
-        <div className="others">
+        <div className="other">
             <Link to='/'><span>Swap</span></Link>
             <Link to='/'>Pool</Link>
             <Link to='/'>Vote</Link>

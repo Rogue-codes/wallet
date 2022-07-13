@@ -216,6 +216,9 @@ const Right = styled.div`
     }
 `
 const Logo = styled.div`
+    @media (max-width:480px) {
+        margin-left: 5%;
+    }
     width: 30px;
     height: 30px;
     img{

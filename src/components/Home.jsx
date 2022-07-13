@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 import { useTransition, animated } from 'react-spring'
 import {BsArrowUpRight} from 'react-icons/bs'
 import {FaTimes} from 'react-icons/fa'
+import {BsArrowDownShort} from 'react-icons/bs'
+import {RiArrowDropDownLine} from 'react-icons/ri'
 
 const Container = styled.div`
     width: 100%;
@@ -273,6 +275,71 @@ const Card = styled.div`
         left: 90%;
         cursor: pointer;
     }
+    .swap{
+        position: absolute;
+        border:2px solid #fff;
+        display: flex;
+        justify-content: center;
+        font-size: 2rem;
+        align-items: center;
+        border-radius: 50%;
+        background: #f7f8fa;
+        color: grey;
+        top: 35%;
+    }
+    .opt1{
+        @media (max-width:480px) {
+            width: 30%;
+            /* border: 1px solid #000; */
+            left: 65%;
+        }
+        position: absolute;
+        top: 20%;
+        left: 70%;
+        background: #edeef2;
+        box-shadow: rgba(200, 200, 210, 0.2) 0px 7px 29px 0px;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        height: 6vh;
+        img{
+            left: 5px;
+            height: 20px;
+            width: 20px;
+            position: absolute;
+        }
+        .drpdwn{
+            left: 70%;
+            font-size: 2rem;
+            position: absolute;
+        }
+    }
+    .opt2{
+        @media (max-width:480px) {
+            width: 50%;
+            left: 45%;
+        }
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        background: #e8006f;
+        color: #fff;
+        box-shadow: rgba(200, 200, 210, 0.2) 0px 7px 29px 0px;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+        height: 6vh;
+        .drpdwn{
+            left: 80%;
+            font-size: 2rem;
+            position: absolute;
+            color: #fff;
+        }
+    }
     p{
         position: absolute;
         top: 5%;
@@ -327,12 +394,34 @@ const Card = styled.div`
             background: #f0dce3;
         }
     }
+    select{
+        position: absolute;
+        top: 25%;
+        width: 15%;
+        left: 78%;
+    }
+    .secondSelect{
+        position: absolute;
+        top: 50%;
+        width: 15%;
+        left: 78%;
+    }
 `
 
 function Home() {
     
     const [showModal, setShowModal]= useState(false)
     const [showWallet, setShowWallet]= useState(false)
+
+    const [select, setSelect] = useState('')
+    const [secondSelect, setSecondSelect] = useState('')
+
+    const swap = () => {
+        console.log(select,secondSelect)
+
+        setSelect(secondSelect)
+        setSecondSelect(select)
+    }
 
     const modalTransitions = useTransition(showModal, {
         from: { opacity: 0 },
@@ -366,6 +455,9 @@ function Home() {
             <input type="text" inputMode='decimal' pattern='^[0-9]*[].,]?[0-9]*$' placeholder='0.0' minLength='1' maxLength='79'  />
             </div>
             <button onClick={()=>setShowModal(true)}>Connect Wallet</button>
+            <div className='swap' onClick={swap}><BsArrowDownShort/></div>
+            <div className="opt1"><img src="/eth.png" alt="" /> ETH <RiArrowDropDownLine className='drpdwn'/></div>
+            <div className="opt2">Select a token <RiArrowDropDownLine className='drpdwn'/></div>            
         </Card>
 
         <div className="other">

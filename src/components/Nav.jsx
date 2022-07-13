@@ -27,6 +27,11 @@ const Navi = styled.nav`
         background-color: #8787949e;
     }
     .animate{
+        @media (max-width:480px) {
+            width: 60%;
+            left: 35%;
+            height: 40vh;
+        }
         width: 20%;
         height: 50vh;
         background: #fff;
@@ -179,7 +184,7 @@ const Right = styled.div`
         @media (max-width:480px) {
             width: 65%;
             font-size: .8rem;
-            height: 40%;
+            height: 60%;
         }
         width: 35%;
         height: 70%;

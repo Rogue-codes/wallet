@@ -305,6 +305,7 @@ const Container = styled.div`
         @media (max-width:480px) {
             width: 90%;
             margin-left: 5%;
+            top: 10%;
         }
         width: 35%;
         position: absolute;
@@ -423,10 +424,11 @@ const Card = styled.div`
     @media (max-width:480px) {
         width: 90%;
         left: 5%;
+        top: 2vh;
     }
     width: 40%;
     left: 30%;
-    top: 2vh;
+    top: 10vh;
     height: 50vh;
     background: #fff;
     position: absolute;

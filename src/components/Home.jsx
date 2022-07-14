@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Nav from './Nav'
 import {FiSettings} from 'react-icons/fi'
-import {MdCancel} from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import { useTransition, animated } from 'react-spring'
 import {BsArrowUpRight} from 'react-icons/bs'
@@ -130,6 +129,175 @@ const Container = styled.div`
             left: 93%;
             color: white;
             font-size: 2rem;
+            cursor: pointer;
+        }
+    }
+    .token{
+        @media (max-width:480px) {
+            width: 90%;
+            margin-left: 5%;
+        }
+        width: 35%;
+        position: absolute;
+        height: 80vh;
+        background: #fff;
+        z-index:150;
+        margin-left: 32.5%;
+        top: 10%;
+        border-radius: 15px;
+        .up{
+            @media (max-width:480px) {
+                display: none;
+            }
+            width: 95%;
+            height: 20vh;
+            margin: auto;
+            margin-top: 3%;
+            border-bottom: 1px solid #edeef2;
+            display: flex;
+            justify-content: space-between;
+            padding: 2%;
+            gap: 5%;
+            flex-wrap: wrap;
+            align-items: center;
+            .coins{
+                min-width: 20%;
+                height: 6vh;
+                border: 1px solid #000;
+                display: flex;
+                justify-content: center;
+                gap: 5%;
+                align-items: center;
+                border-radius: 5px;
+                &:hover {
+                    background: #edeef2;
+                    cursor: pointer;
+                }
+                img{
+                    left: 5px;
+                    height: 20px;
+                    width: 20px;
+                    /* position: absolute; */
+                }
+            }
+        }
+        .dwn{
+            @media (max-width:480px) {
+                height: 50vh;
+            }
+            width: 95%;
+            height: 20vh;
+            margin: auto;
+            margin-top: 3%;
+            border-bottom: 1px solid #edeef2;
+            display: flex;
+            flex-direction: column;
+            padding: 2%;
+            gap: 10%;
+            align-items: flex-start;
+            overflow: auto;
+            .coins{
+                width: 20%;
+                height: 8vh;
+                display: flex;
+                justify-content: space-between;
+                padding: 2px;
+                align-items: center;
+                border-radius: 5px;
+                img{
+                    left: 5px;
+                    height: 20px;
+                    width: 20px;
+                    /* position: absolute; */
+                }
+            }
+        }
+        .btm{
+            height: 13vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p{
+                color: #dd3485;
+                cursor: pointer
+            }
+        }
+        p{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 5%;
+            padding-left: 3%;
+            padding-bottom: 8%;
+        }
+        input{
+            @media (max-width:480px) {
+                height: 6vh;
+                font-size: 1rem;
+            }
+            width: 80%;
+            margin-top: 0%;
+            margin-left: 10%;
+            height: 9vh;
+            padding-left: 2%;
+            border-radius: 18px;
+            font-size: 1.5vw;
+            font-weight: 300;
+            border: 1px solid grey;
+            &:focus{
+                border: none;
+                outline: solid 1px #dd3485;
+            }
+        }
+        .cardCont{
+            width: 90%;
+            height: 40%;
+            margin: auto;
+            margin-top: 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2%;
+            .cards{
+                @media (max-width:480px) {
+                    font-size: .7rem;
+                }
+                width: 22%;
+                height: 50px;
+                font-size: 1vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                .imgC{
+                    @media (max-width:480px) {
+                        padding-bottom: 11%;
+                    }
+                    width: 40%;
+                    height: 60%;
+                    background: #fff;
+                    border-radius: 5px;
+                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 5px;
+                    }
+                }
+                a{
+                    text-decoration: none;
+                    color: black;
+                    margin-bottom:5%;
+                }
+            }
+        }
+        .cncel{
+            position: absolute;
+            top: 2%;
+            left: 93%;
+            color: #000;
+            font-size: 1.2rem;
             cursor: pointer;
         }
     }
@@ -300,6 +468,7 @@ const Card = styled.div`
         border-radius: 12px;
         display: flex;
         justify-content: center;
+        cursor: pointer;
         align-items: center;
         width: 20%;
         height: 6vh;
@@ -417,6 +586,7 @@ function Home() {
     
     const [showModal, setShowModal]= useState(false)
     const [showWallet, setShowWallet]= useState(false)
+    const [swapWallet, setSwapWallet]= useState(false)
 
         const[swapping, setSwapping] = useState(false)
 
@@ -443,6 +613,16 @@ function Home() {
           // config: config.molasses,
         // onRest: () => set(!show),
       })
+
+      const swapWalletTransitions = useTransition(swapWallet, {
+        from: { opacity: 0 },
+        enter: { opacity: 1 },
+        leave: { opacity: 0 },
+        reverse: swapWallet,
+        delay: 200,
+          // config: config.molasses,
+        // onRest: () => set(!show),
+      })
   
   return (
 
@@ -457,7 +637,7 @@ function Home() {
             </div>
             <button onClick={()=>setShowModal(true)}>Connect Wallet</button>
             <div className='swap' onClick={(sw)=>swap(sw)}><BsArrowDownShort/></div>
-            <div className={swapping ? 'swapp1 opt1' : 'opt1'} ><img src="/eth.png" alt=""/> ETH <RiArrowDropDownLine className='drpdwn'/></div>
+            <div className={swapping ? 'swapp1 opt1' : 'opt1'} onClick={()=>setSwapWallet(true)}  ><img src="/eth.png" alt=""/> ETH <RiArrowDropDownLine className='drpdwn'/></div>
             <div className={swapping ? 'swapp2 opt2' : 'opt2'}>Select a Token<RiArrowDropDownLine className='drpdwn'/></div>            
         </Card>
 
@@ -484,7 +664,7 @@ function Home() {
         )
     }
 
-{
+    {
         walletTransitions(
         (styles, item) => item && <animated.div style={styles} className='wallet'>
             <p>Connect Wallet</p>
@@ -579,7 +759,44 @@ function Home() {
                     <Link to='/form'>Tokenpocket</Link>
                 </div>
             </div>
-            <MdCancel className='cncel' onClick={()=>setShowWallet(false)}/>
+            <FaTimes className='cncel' onClick={()=>setShowWallet(false)}/>
+        </animated.div>
+        )
+    }
+
+    {
+        swapWalletTransitions(
+        (styles, item) => item && <animated.div style={styles} className='token'>
+            <p>Connect Wallet</p>
+            <input type="text" placeholder="search name or paste address" />
+            <div className="up">
+                <div className="coins"><img src="/eth.png" alt="" /> ETH</div>
+                <div className="coins"><img src="/dai.png" alt="" /> DAI</div>
+                <div className="coins"><img src="/sdc.png" alt="" /> USDC</div>
+                <div className="coins"><img src="/usdt.png" alt="" /> USDT</div>
+                <div className="coins"><img src="/wbtc.png" alt="" /> WBTC</div>
+                <div className="coins"><img src="/weth.png" alt="" /> WETH</div>
+            </div>
+
+            <div className="dwn">
+                <div className="coins"><img src="/eth.png" alt="" /> ETH</div>
+                <div className="coins"><img src="/dai.png" alt="" /> DAI</div>
+                <div className="coins"><img src="/sdc.png" alt="" /> USDC</div>
+                <div className="coins"><img src="/usdt.png" alt="" /> USDT</div>
+                <div className="coins"><img src="/wbtc.png" alt="" /> WBTC</div>
+                <div className="coins"><img src="/weth.png" alt="" /> WETH</div>
+                <div className="coins"><img src="/ali.svg" alt="" /> ALI</div>
+                <div className="coins"><img src="/alice_logo.webp" alt="" /> ALICE</div>
+                <div className="coins"><img src="/amp.webp" alt="" /> AMP</div>
+                <div className="coins"><img src="/api3.webp" alt="" /> API3</div>
+                <div className="coins"><img src="/xbt.png" alt="" /> 0xBTC</div>
+                <div className="coins"><img src="/1inch.webp" alt="" />1INCH</div>
+            </div>
+
+            <div className="btm">
+                <p>Manage Token List</p>
+            </div>
+            <FaTimes className='cncel' onClick={()=>setSwapWallet(false)}/>
         </animated.div>
         )
     }

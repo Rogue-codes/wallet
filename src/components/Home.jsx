@@ -305,7 +305,7 @@ const Container = styled.div`
         @media (max-width:480px) {
             width: 90%;
             margin-left: 5%;
-            top: 10%;
+            top: 5%;
         }
         width: 35%;
         position: absolute;

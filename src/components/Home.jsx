@@ -587,6 +587,7 @@ function Home() {
     const [showModal, setShowModal]= useState(false)
     const [showWallet, setShowWallet]= useState(false)
     const [swapWallet, setSwapWallet]= useState(false)
+    const [tokenVal, setTokenVal]= useState('ETH')
 
         const[swapping, setSwapping] = useState(false)
 
@@ -623,6 +624,70 @@ function Home() {
           // config: config.molasses,
         // onRest: () => set(!show),
       })
+
+     let  ETH = 'ETH'
+     let DAI = 'DAI'
+     let USDC = 'USDC'
+      let USDT = 'USDT'
+      let WBTC = 'WBTC'
+      let WETH = 'WETH'
+      let ALI = 'ALI'
+      let ALICE = 'ALICE'
+      let AMP = 'ALICE'
+      let API3 = 'API3'
+      let BTC = '0xBTC'
+    let INCH = '1INCH'
+
+    const  ETHs = () =>{
+        setTokenVal(ETH)
+        setSwapWallet(false)
+    }
+    const DAIs = () =>{
+        setTokenVal(DAI)
+        setSwapWallet(false)
+    } 
+    const USDCs = () =>{
+        setTokenVal(USDC)
+        setSwapWallet(false)
+    } 
+     const USDTs = () =>{
+        setTokenVal(USDT)
+        setSwapWallet(false)
+     } 
+     const WBTCs = () =>{
+        setTokenVal(WBTC)
+        setSwapWallet(false)
+     }
+     const WETHs = () =>{
+        setTokenVal(WETH)
+        setSwapWallet(false)
+     } 
+     const ALIs = () =>{
+        setTokenVal(ALI)
+        setSwapWallet(false)
+     } 
+     const ALICEs = () =>{
+        setTokenVal(ALICE)
+        setSwapWallet(false)
+     } 
+     const AMPs = () =>{
+        setTokenVal(AMP)
+        setSwapWallet(false)
+     }
+     const API3s = () =>{
+        setTokenVal(API3)
+        setSwapWallet(false)
+     }
+     const BTCs = () =>{
+        setTokenVal(BTC)
+        setSwapWallet(false)
+     }
+
+   const INCHs = () =>{
+    setTokenVal(INCH)
+    setSwapWallet(false)
+   }
+
   
   return (
 
@@ -637,7 +702,7 @@ function Home() {
             </div>
             <button onClick={()=>setShowModal(true)}>Connect Wallet</button>
             <div className='swap' onClick={(sw)=>swap(sw)}><BsArrowDownShort/></div>
-            <div className={swapping ? 'swapp1 opt1' : 'opt1'} onClick={()=>setSwapWallet(true)}  ><img src="/eth.png" alt=""/> ETH <RiArrowDropDownLine className='drpdwn'/></div>
+            <div className={swapping ? 'swapp1 opt1' : 'opt1'} onClick={()=>setSwapWallet(true)}  ><img src="/eth.png" alt=""/> {tokenVal} <RiArrowDropDownLine className='drpdwn'/></div>
             <div className={swapping ? 'swapp2 opt2' : 'opt2'}>Select a Token<RiArrowDropDownLine className='drpdwn'/></div>            
         </Card>
 
@@ -770,27 +835,27 @@ function Home() {
             <p>Connect Wallet</p>
             <input type="text" placeholder="search name or paste address" />
             <div className="up">
-                <div className="coins"><img src="/eth.png" alt="" /> ETH</div>
-                <div className="coins"><img src="/dai.png" alt="" /> DAI</div>
-                <div className="coins"><img src="/sdc.png" alt="" /> USDC</div>
-                <div className="coins"><img src="/usdt.png" alt="" /> USDT</div>
-                <div className="coins"><img src="/wbtc.png" alt="" /> WBTC</div>
-                <div className="coins"><img src="/weth.png" alt="" /> WETH</div>
+                <div className="coins" onClick ={ETHs}><img src="/eth.png" alt="" /> ETH</div>
+                <div className="coins" onClick ={DAIs}><img src="/dai.png" alt="" /> DAI</div>
+                <div className="coins" onClick ={USDCs}><img src="/sdc.png" alt="" /> USDC</div>
+                <div className="coins" onClick ={USDTs}><img src="/usdt.png" alt="" /> USDT</div>
+                <div className="coins" onClick ={WBTCs}><img src="/wbtc.png" alt="" /> WBTC</div>
+                <div className="coins" onClick ={WETHs}><img src="/weth.png" alt="" /> WETH</div>
             </div>
 
             <div className="dwn">
-                <div className="coins"><img src="/eth.png" alt="" /> ETH</div>
-                <div className="coins"><img src="/dai.png" alt="" /> DAI</div>
-                <div className="coins"><img src="/sdc.png" alt="" /> USDC</div>
-                <div className="coins"><img src="/usdt.png" alt="" /> USDT</div>
-                <div className="coins"><img src="/wbtc.png" alt="" /> WBTC</div>
-                <div className="coins"><img src="/weth.png" alt="" /> WETH</div>
-                <div className="coins"><img src="/ali.svg" alt="" /> ALI</div>
-                <div className="coins"><img src="/alice_logo.webp" alt="" /> ALICE</div>
-                <div className="coins"><img src="/amp.webp" alt="" /> AMP</div>
-                <div className="coins"><img src="/api3.webp" alt="" /> API3</div>
-                <div className="coins"><img src="/xbt.png" alt="" /> 0xBTC</div>
-                <div className="coins"><img src="/1inch.webp" alt="" />1INCH</div>
+                <div className="coins" onClick ={ETHs} ><img src="/eth.png" alt="" /> ETH</div>
+                <div className="coins" onClick ={DAIs}><img src="/dai.png" alt="" /> DAI</div>
+                <div className="coins" onClick ={USDCs}><img src="/sdc.png" alt="" /> USDC</div>
+                <div className="coins" onClick ={USDTs}><img src="/usdt.png" alt="" /> USDT</div>
+                <div className="coins" onClick ={WBTCs}><img src="/wbtc.png" alt="" /> WBTC</div>
+                <div className="coins" onClick ={WETHs}><img src="/weth.png" alt="" /> WETH</div>
+                <div className="coins" onClick ={ALIs}><img src="/ali.svg" alt="" /> ALI</div>
+                <div className="coins" onClick ={ALICEs}><img src="/alice_logo.webp" alt="" /> ALICE</div>
+                <div className="coins" onClick ={AMPs}><img src="/amp.webp" alt="" /> AMP</div>
+                <div className="coins" onClick ={API3s}><img src="/api3.webp" alt="" /> API3</div>
+                <div className="coins" onClick ={BTCs} ><img src="/xbt.png" alt="" /> 0xBTC</div>
+                <div className="coins" onClick ={INCHs}><img src="/1inch.webp" alt="" />1INCH</div>
             </div>
 
             <div className="btm">

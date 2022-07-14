@@ -169,6 +169,7 @@ const Container = styled.div`
                 gap: 5%;
                 align-items: center;
                 border-radius: 5px;
+                cursor: pointer;
                 &:hover {
                     background: #edeef2;
                     cursor: pointer;
@@ -177,7 +178,6 @@ const Container = styled.div`
                     left: 5px;
                     height: 20px;
                     width: 20px;
-                    /* position: absolute; */
                 }
             }
         }
@@ -204,11 +204,11 @@ const Container = styled.div`
                 padding: 2px;
                 align-items: center;
                 border-radius: 5px;
+                cursor: pointer;
                 img{
                     left: 5px;
                     height: 20px;
                     width: 20px;
-                    /* position: absolute; */
                 }
             }
         }
@@ -493,6 +493,7 @@ const Card = styled.div`
         top: 48%;
         left: 50%;
         background: #e8006f;
+        cursor: pointer;
         color: #fff;
         box-shadow: rgba(200, 200, 210, 0.2) 0px 7px 29px 0px;
         border-radius: 12px;
@@ -587,7 +588,9 @@ function Home() {
     const [showModal, setShowModal]= useState(false)
     const [showWallet, setShowWallet]= useState(false)
     const [swapWallet, setSwapWallet]= useState(false)
+    const [selectToken, setSelectToken]= useState(false)
     const [tokenVal, setTokenVal]= useState('ETH')
+    const [optionVal, setOptionVal]= useState('Select a Token')
 
         const[swapping, setSwapping] = useState(false)
 
@@ -620,6 +623,16 @@ function Home() {
         enter: { opacity: 1 },
         leave: { opacity: 0 },
         reverse: swapWallet,
+        delay: 200,
+          // config: config.molasses,
+        // onRest: () => set(!show),
+      })
+
+      const selectTokenTransitions = useTransition(selectToken, {
+        from: { opacity: 0 },
+        enter: { opacity: 1 },
+        leave: { opacity: 0 },
+        reverse: selectToken,
         delay: 200,
           // config: config.molasses,
         // onRest: () => set(!show),
@@ -688,6 +701,57 @@ function Home() {
     setSwapWallet(false)
    }
 
+
+   const  ETHss = () =>{
+    setOptionVal(ETH)
+    setSelectToken(false)
+}
+const DAIss = () =>{
+    setOptionVal(DAI)
+    setSelectToken(false)
+} 
+const USDCss = () =>{
+    setOptionVal(USDC)
+    setSelectToken(false)
+} 
+ const USDTss = () =>{
+    setOptionVal(USDT)
+    setSelectToken(false)
+ } 
+ const WBTCss = () =>{
+    setOptionVal(WBTC)
+    setSelectToken(false)
+ }
+ const WETHss = () =>{
+    setOptionVal(WETH)
+    setSelectToken(false)
+ } 
+ const ALIss = () =>{
+    setOptionVal(ALI)
+    setSelectToken(false)
+ } 
+ const ALICEss = () =>{
+    setOptionVal(ALICE)
+    setSelectToken(false)
+ } 
+ const AMPss = () =>{
+    setOptionVal(AMP)
+    setSelectToken(false)
+ }
+ const API3ss = () =>{
+    setOptionVal(API3)
+    setSelectToken(false)
+ }
+ const BTCss = () =>{
+    setOptionVal(BTC)
+    setSelectToken(false)
+ }
+
+const INCHss = () =>{
+    setOptionVal(INCH)
+    setSelectToken(false)
+}
+
   
   return (
 
@@ -703,7 +767,7 @@ function Home() {
             <button onClick={()=>setShowModal(true)}>Connect Wallet</button>
             <div className='swap' onClick={(sw)=>swap(sw)}><BsArrowDownShort/></div>
             <div className={swapping ? 'swapp1 opt1' : 'opt1'} onClick={()=>setSwapWallet(true)}  ><img src="/eth.png" alt=""/> {tokenVal} <RiArrowDropDownLine className='drpdwn'/></div>
-            <div className={swapping ? 'swapp2 opt2' : 'opt2'}>Select a Token<RiArrowDropDownLine className='drpdwn'/></div>            
+            <div className={swapping ? 'swapp2 opt2' : 'opt2'} onClick={()=>setSelectToken(true)}>{optionVal}<RiArrowDropDownLine className='drpdwn'/></div>            
         </Card>
 
         <div className="other">
@@ -856,6 +920,43 @@ function Home() {
                 <div className="coins" onClick ={API3s}><img src="/api3.webp" alt="" /> API3</div>
                 <div className="coins" onClick ={BTCs} ><img src="/xbt.png" alt="" /> 0xBTC</div>
                 <div className="coins" onClick ={INCHs}><img src="/1inch.webp" alt="" />1INCH</div>
+            </div>
+
+            <div className="btm">
+                <p>Manage Token List</p>
+            </div>
+            <FaTimes className='cncel' onClick={()=>setSwapWallet(false)}/>
+        </animated.div>
+        )
+    }
+
+{
+        selectTokenTransitions(
+        (styles, item) => item && <animated.div style={styles} className='token'>
+            <p>Connect Wallet</p>
+            <input type="text" placeholder="search name or paste address" />
+            <div className="up">
+                <div className="coins" onClick ={ETHs}><img src="/eth.png" alt="" /> ETH</div>
+                <div className="coins" onClick ={DAIs}><img src="/dai.png" alt="" /> DAI</div>
+                <div className="coins" onClick ={USDCs}><img src="/sdc.png" alt="" /> USDC</div>
+                <div className="coins" onClick ={USDTs}><img src="/usdt.png" alt="" /> USDT</div>
+                <div className="coins" onClick ={WBTCs}><img src="/wbtc.png" alt="" /> WBTC</div>
+                <div className="coins" onClick ={WETHs}><img src="/weth.png" alt="" /> WETH</div>
+            </div>
+
+            <div className="dwn">
+                <div className="coins" onClick ={ETHss} ><img src="/eth.png" alt="" /> ETH</div>
+                <div className="coins" onClick ={DAIss}><img src="/dai.png" alt="" /> DAI</div>
+                <div className="coins" onClick ={USDCss}><img src="/sdc.png" alt="" /> USDC</div>
+                <div className="coins" onClick ={USDTss}><img src="/usdt.png" alt="" /> USDT</div>
+                <div className="coins" onClick ={WBTCss}><img src="/wbtc.png" alt="" /> WBTC</div>
+                <div className="coins" onClick ={WETHss}><img src="/weth.png" alt="" /> WETH</div>
+                <div className="coins" onClick ={ALIss}><img src="/ali.svg" alt="" /> ALI</div>
+                <div className="coins" onClick ={ALICEss}><img src="/alice_logo.webp" alt="" /> ALICE</div>
+                <div className="coins" onClick ={AMPss}><img src="/amp.webp" alt="" /> AMP</div>
+                <div className="coins" onClick ={API3ss}><img src="/api3.webp" alt="" /> API3</div>
+                <div className="coins" onClick ={BTCss} ><img src="/xbt.png" alt="" /> 0xBTC</div>
+                <div className="coins" onClick ={INCHss}><img src="/1inch.webp" alt="" />1INCH</div>
             </div>
 
             <div className="btm">

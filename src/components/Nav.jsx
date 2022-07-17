@@ -27,6 +27,10 @@ const Navi = styled.nav`
         background-color: #8787949e;
     }
     .animate{
+        @media screen and (min-width:481px) and (max-width:768px) {
+            width: 30%;
+            left: 62%;
+        }
         @media (max-width:480px) {
             width: 60%;
             left: 35%;
@@ -105,6 +109,10 @@ const Navi = styled.nav`
     }
 `
 const Left = styled.div`
+    @media screen and (min-width:481px) and (max-width:768px) {
+        width: 45%;
+        height: 6vh;
+    }
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -132,6 +140,10 @@ const Left = styled.div`
                 color: black;
             }
             span{
+                @media screen and (min-width:481px) and (max-width:768px) {
+                    padding: 25% 30%;
+                    border-radius: 8px;
+                }
                 background: #ebedf2;
                 padding: 5% 20%;
                 border-radius: 12px;
@@ -145,6 +157,10 @@ const Left = styled.div`
     }
 `
 const Right = styled.div`
+
+    @media screen and (min-width:481px) and (max-width:768px) {
+            width: 55%;
+    }
     @media (max-width:480px) {
         width: 100%;
     }

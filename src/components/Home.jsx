@@ -10,11 +10,16 @@ import {BsArrowDownShort} from 'react-icons/bs'
 import {RiArrowDropDownLine} from 'react-icons/ri'
 
 const Container = styled.div`
+
     width: 100%;
     min-height: 100vh;
     background: #f7f0f6;
     position: relative;
     .wallet{
+        @media screen and (min-width:481px) and (max-width:768px) {
+           width: 50%;
+           margin-left: 25%;
+        }
         @media (max-width:480px) {
             width: 90%;
             margin-left: 5%;
@@ -133,6 +138,10 @@ const Container = styled.div`
         }
     }
     .token{
+        @media screen and (min-width:481px) and (max-width:768px) {
+            width: 50%;
+            margin-left: 25%;
+        }
         @media (max-width:480px) {
             width: 90%;
             margin-left: 5%;
@@ -197,6 +206,9 @@ const Container = styled.div`
             align-items: flex-start;
             overflow: auto;
             .coins{
+                @media screen and (min-width:481px) and (max-width:768px) {
+                    min-width: 25%;
+                }
                 width: 20%;
                 height: 8vh;
                 display: flex;
@@ -302,6 +314,10 @@ const Container = styled.div`
         }
     }
     .modal{
+        @media screen and (min-width:481px) and (max-width:768px) {
+            width: 50%;
+            margin-left: 25%;
+        }
         @media (max-width:480px) {
             width: 90%;
             margin-left: 5%;
@@ -338,6 +354,9 @@ const Container = styled.div`
                 border: 1px solid #dd3485;
             }
             p{
+                @media screen and (min-width:481px) and (max-width:768px) {
+                    font-size: .8rem;
+                }
                 @media (max-width:480px) {
                     font-size: .8rem;
 
@@ -372,6 +391,9 @@ const Container = styled.div`
             }
         }
         .cncel{
+            @media screen and (min-width:481px) and (max-width:768px) {
+                top: 1.5%
+            }
             @media (max-width:480px) {
                 top: 2.5%;
             }
@@ -421,6 +443,10 @@ const Container = styled.div`
     }
 `
 const Card = styled.div`
+    @media screen and (min-width:481px) and (max-width:768px) {
+        width: 60%;
+        left: 20%;
+    }
     @media (max-width:480px) {
         width: 90%;
         left: 5%;
@@ -458,6 +484,10 @@ const Card = styled.div`
         top: 35%;
     }
     .opt1{
+        @media screen and (min-width:481px) and (max-width:768px) {
+            width: 30%;
+            left: 60%;
+        }
         @media (max-width:480px) {
             width: 30%;
             left: 65%;
@@ -556,6 +586,9 @@ const Card = styled.div`
 
     }
     button{
+        @media screen and (min-width:481px) and (max-width:768px) {
+            font-size: 1.2rem;
+        }
         @media (max-width:480px) {
             font-size: 1.2rem;
         }
@@ -938,12 +971,12 @@ const INCHss = () =>{
             <p>Connect Wallet</p>
             <input type="text" placeholder="search name or paste address" />
             <div className="up">
-                <div className="coins" onClick ={ETHs}><img src="/eth.png" alt="" /> ETH</div>
-                <div className="coins" onClick ={DAIs}><img src="/dai.png" alt="" /> DAI</div>
-                <div className="coins" onClick ={USDCs}><img src="/sdc.png" alt="" /> USDC</div>
-                <div className="coins" onClick ={USDTs}><img src="/usdt.png" alt="" /> USDT</div>
-                <div className="coins" onClick ={WBTCs}><img src="/wbtc.png" alt="" /> WBTC</div>
-                <div className="coins" onClick ={WETHs}><img src="/weth.png" alt="" /> WETH</div>
+                <div className="coins" onClick ={ETHss}><img src="/eth.png" alt="" /> ETH</div>
+                <div className="coins" onClick ={DAIss}><img src="/dai.png" alt="" /> DAI</div>
+                <div className="coins" onClick ={USDCss}><img src="/sdc.png" alt="" /> USDC</div>
+                <div className="coins" onClick ={USDTss}><img src="/usdt.png" alt="" /> USDT</div>
+                <div className="coins" onClick ={WBTCss}><img src="/wbtc.png" alt="" /> WBTC</div>
+                <div className="coins" onClick ={WETHss}><img src="/weth.png" alt="" /> WETH</div>
             </div>
 
             <div className="dwn">
@@ -964,7 +997,7 @@ const INCHss = () =>{
             <div className="btm">
                 <p>Manage Token List</p>
             </div>
-            <FaTimes className='cncel' onClick={()=>setSwapWallet(false)}/>
+            <FaTimes className='cncel' onClick={()=>setSelectToken(false)}/>
         </animated.div>
         )
     }

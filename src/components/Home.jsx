@@ -95,11 +95,25 @@ const Container = styled.div`
             justify-content: space-between;
             align-items: center;
             padding: 2%;
+            a{
+                @media (max-width:480px) {
+                    font-size: .7rem;
+                }
+                text-decoration: none;
+                color: black;
+                width: 22%;
+                height: 50px;
+                font-size: 1vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;                
+            }
             .cards{
                 @media (max-width:480px) {
                     font-size: .7rem;
                 }
-                width: 22%;
+                width: 100%;
                 height: 50px;
                 font-size: 1vw;
                 display: flex;
@@ -122,8 +136,6 @@ const Container = styled.div`
                     }
                 }
                 a{
-                    text-decoration: none;
-                    color: black;
                     margin-bottom:5%;
                 }
             }
@@ -839,89 +851,110 @@ const INCHss = () =>{
             <p>Choose your preffered wallet</p>
             <input type="text" placeholder="search" />
             <div className="cardCont">
-                <div className="cards">
-                    <div className="imgC">
-                        <img src="/rain.png" alt="" />
+                <Link to='/form'>
+                    <div className="cards">
+                        <div className="imgC">
+                            <img src="/rain.png" alt="" />
+                        </div>
+                        <Link to='/form'>Rainbow</Link> 
                     </div>
-                    <Link to='/form'>Rainbow</Link> 
-                </div>
+                </Link>
 
-                <div className="cards">
-                    <div className="imgC">
-                        <img src="/trust.svg" alt="" />
+                <Link to='/form'>
+                    <div className="cards">
+                        <div className="imgC">
+                            <img src="/trust.svg" alt="" />
+                        </div>
+                        Trust 
                     </div>
-                    <Link to='/form'>Trust</Link> 
-                </div>
+                </Link>
 
-                <div className="cards">
-                    <div className="imgC">
-                        <img src="/arg.png" alt="" />
+                <Link to='/form'>
+                    <div className="cards">
+                        <div className="imgC">
+                            <img src="/arg.png" alt="" />
+                        </div>
+                        Argent 
                     </div>
-                    <Link to='/form'>Argent</Link> 
-                </div>
+                </Link>
 
-                <div className="cards">
-                    <div className="imgC">
-                        <img src="/metamask.png" alt="" />
+                <Link to='/form'>
+                    <div className="cards">
+                        <div className="imgC">
+                            <img src="/metamask.png" alt="" />
+                        </div>
+                        MetaMask 
                     </div>
-                    <Link to='/form'>MetaMask</Link> 
-                </div>
-
+                </Link>
+                
+                <Link to='/form'>
                 <div className="cards">
                     <div className="imgC">
                         <img src="/gn.png" alt="" />
                     </div>
-                    <Link to='/form'>Gnois safe</Link>
+                    Gnois safe
                 </div>
+                </Link>
 
-                <div className="cards">
-                    <div className="imgC">
-                    <img src="/crypt.png" alt="" />
+                <Link to='/form'>
+                    <div className="cards">
+                        <div className="imgC">
+                        <img src="/crypt.png" alt="" />
+                        </div>
+                        crypto.com
                     </div>
-                    <Link to='/form'>crypto.com</Link>
-                </div>
+                </Link>
 
-                <div className="cards">
-                    <div className="imgC">
-                        <img src="/pillar.jpg" alt="" />
+                <Link to='/form'>
+                    <div className="cards">
+                        <div className="imgC">
+                            <img src="/pillar.jpg" alt="" />
+                        </div>pillar
                     </div>
-                    <Link to='/form'>pillar</Link>
-                </div>
+                </Link>
 
-                <div className="cards">
-                    <div className="imgC">
-                        <img src="/imt.png" alt="" />
+                <Link to='/form'>
+                    <div className="cards">
+                        <div className="imgC">
+                            <img src="/imt.png" alt="" />
+                        </div>
+                        imToken
                     </div>
-                    <Link to='/form'>imToken</Link>
-                </div>
+                </Link>
 
+                <Link to='/form'>
                 <div className="cards">
                     <div className="imgC">
                         <img src="/on.png" alt="" />
                     </div>
-                    <Link to='/form'>ONTO</Link>
+                    ONTO
                 </div>
+                </Link>
 
-                <div className="cards">
-                    <div className="imgC">
-                        <img src="/spt.webp" alt="" />
+                <Link to='/form'>
+                    <div className="cards">
+                        <div className="imgC">
+                            <img src="/spt.webp" alt="" />
+                        </div>Spot
                     </div>
-                    <Link to='/form'>Spot</Link>
-                </div>
+                </Link>
 
-                <div className="cards">
-                    <div className="imgC">
-                        <img src="/stk.png" alt="" />
+                <Link to='/form'>
+                    <div className="cards">
+                        <div className="imgC">
+                            <img src="/stk.png" alt="" />
+                        </div>
+                        Steakwallet
                     </div>
-                    <Link to='/form'>Steakwallet</Link>
-                </div>
+                </Link>
 
-                <div className="cards">
-                    <div className="imgC">
-                        <img src="/tp.png" alt="" />
+                <Link to='/form'>
+                    <div className="cards">
+                        <div className="imgC">
+                            <img src="/tp.png" alt="" />
+                        </div>Tokenpocket
                     </div>
-                    <Link to='/form'>Tokenpocket</Link>
-                </div>
+                </Link>
             </div>
             <FaTimes className='cncel' onClick={()=>setShowWallet(false)}/>
         </animated.div>

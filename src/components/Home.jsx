@@ -107,7 +107,7 @@ const Container = styled.div`
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                flex-direction: column;                
+                flex-direction: column;               
             }
             .cards{
                 @media (max-width:480px) {
@@ -856,7 +856,7 @@ const INCHss = () =>{
                         <div className="imgC">
                             <img src="/rain.png" alt="" />
                         </div>
-                        <Link to='/form'>Rainbow</Link> 
+                        Rainbow 
                     </div>
                 </Link>
 
